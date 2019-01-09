@@ -1,8 +1,9 @@
 import React from "react";
+import "./Todo.css";
 
 function TodoForm(props) {
   return (
-    <form onSubmit={props.addNewTodo}>
+    <form className="todoBar" onSubmit={props.addNewTodo}>
       <input
         value={props.task}
         type="text"

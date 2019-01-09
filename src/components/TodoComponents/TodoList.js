@@ -3,7 +3,7 @@ import Todo from "./Todo";
 
 function TodoList(props) {
   return (
-    <div>
+    <div className="todoItem strike-through">
       {props.todoTask.map((todo, index) => {
         return <Todo todo={todo} key={index} />;
       })}

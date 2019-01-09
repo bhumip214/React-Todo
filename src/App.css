@@ -1,0 +1,43 @@
+.todoList {
+  margin: 40px;
+  padding: 60px;
+}
+
+h2 {
+  margin-top: 20px;
+  font-size: 30px;
+  text-align: center;
+}
+
+.todoBar {
+  margin-bottom: 30px;
+}
+
+input {
+  font-size: 20px;
+  width: 500px;
+  padding: 10px;
+}
+button {
+  padding: 10px;
+  font-size: 16px;
+  margin: 10px;
+  margin-right: 0px;
+  background-color: #0066ff;
+  color: #fff;
+  border: 2px solid #0066ff;
+  border-radius: 10px;
+}
+
+.todoItem {
+  cursor: pointer;
+  font-size: 25px;
+  line-height: 2;
+  border: 1px solid grey;
+  border-radius: 10px;
+  padding: 10px;
+}
+.strike-through {
+  text-decoration: line-through;
+  background: lightgrey;
+}
