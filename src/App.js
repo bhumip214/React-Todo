@@ -19,16 +19,32 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      todoData: todoData
+      todoData: todoData,
+      task: ""
     };
   }
+  handleChanges = event => {
+    this.setState({ task: event.target.value });
+  };
+
+  addNewTodo = event => {
+    event.preventDefault();
+    this.setState({
+      todoData: [...this.state.todoData, { task: this.state.task }],
+      task: ""
+    });
+  };
 
   render() {
     return (
       <div>
         <h2>My Todo List</h2>
         <TodoList todoTask={this.state.todoData} />
-        <TodoForm />
+        <TodoForm
+          addNewTodo={this.addNewTodo}
+          handleChanges={this.handleChanges}
+          task={this.state.task}
+        />
       </div>
     );
   }
