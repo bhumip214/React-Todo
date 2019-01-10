@@ -9,7 +9,7 @@ function Todo(props) {
       }}
       className={props.todo.completed === true ? "line-through" : null}
     >
-      {props.todo.task}
+      <div className="task">{props.todo.task}</div>
     </div>
   );
 }

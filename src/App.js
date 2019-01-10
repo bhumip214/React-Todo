@@ -48,9 +48,9 @@ class App extends React.Component {
 
   addNewTodo = event => {
     event.preventDefault();
-    if (this.state.task === "") {
-      return;
-    }
+    // if (this.state.task === "") {
+    //   return;
+    // }
     let newItem = {
       task: this.state.task,
       id: Date.now(),
@@ -93,13 +93,20 @@ class App extends React.Component {
     return (
       <div className="App">
         <SimpleStorage parent={this} />
+        <div className="header">
+          <span className="task-icon">
+            <i class="fas fa-list-alt" />
+          </span>
+          <h2>Todos</h2>
+        </div>
+
         <TodoForm
           addNewTodo={this.addNewTodo}
           handleChanges={this.handleChanges}
           task={this.state.task}
           clearCompleted={this.clearCompleted}
         />
-        <h2>My Todo List</h2>
+
         <TodoList
           todoData={this.state.todoData}
           toggleTodo={this.handleToggleTodo}
