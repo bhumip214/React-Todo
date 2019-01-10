@@ -5,13 +5,23 @@ import "./App.css";
 
 const todoData = [
   {
-    task: "Organize Garage",
+    task: "Study React",
     id: 1,
     completed: false
   },
   {
-    task: "Bake Cookies",
+    task: "Organize Cabinet",
     id: 2,
+    completed: false
+  },
+  {
+    task: "Cook Dinner",
+    id: 3,
+    completed: true
+  },
+  {
+    task: "Complete Todo App",
+    id: 4,
     completed: false
   }
 ];
@@ -30,22 +40,27 @@ class App extends React.Component {
 
   addNewTodo = event => {
     event.preventDefault();
+    let newItem = {
+      task: this.state.task,
+      id: Date.now(),
+      completed: false
+    };
     this.setState({
-      todoData: [...this.state.todoData, { task: this.state.task }],
+      todoData: [newItem, ...this.state.todoData],
       task: ""
     });
   };
 
   render() {
     return (
-      <div className="todoList">
+      <div className="App">
         <TodoForm
           addNewTodo={this.addNewTodo}
           handleChanges={this.handleChanges}
           task={this.state.task}
         />
         <h2>My Todo List</h2>
-        <TodoList todoTask={this.state.todoData} />
+        <TodoList todoData={this.state.todoData} />
       </div>
     );
   }

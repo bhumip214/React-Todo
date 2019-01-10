@@ -1,10 +1,11 @@
 import React from "react";
 import Todo from "./Todo";
+import "./TodoList.css";
 
 function TodoList(props) {
   return (
-    <div className="todoItem strike-through">
-      {props.todoTask.map((todo, index) => {
+    <div className="todoList">
+      {props.todoData.map((todo, index) => {
         return <Todo todo={todo} key={index} />;
       })}
     </div>

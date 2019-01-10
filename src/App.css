@@ -1,6 +1,17 @@
-.todoList {
+* {
+  box-sizing: border-box;
+}
+#root {
+  width: 980px;
+  margin: 0 auto;
+}
+
+.App {
   margin: 40px;
   padding: 60px;
+  border: 1px solid grey;
+  border-radius: 10px;
+  background: lightgrey;
 }
 
 h2 {
@@ -27,17 +38,4 @@ button {
   color: #fff;
   border: 2px solid #0066ff;
   border-radius: 10px;
-}
-
-.todoItem {
-  cursor: pointer;
-  font-size: 25px;
-  line-height: 2;
-  border: 1px solid grey;
-  border-radius: 10px;
-  padding: 10px;
-}
-.strike-through {
-  text-decoration: line-through;
-  background: lightgrey;
 }
