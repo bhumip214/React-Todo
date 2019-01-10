@@ -72,6 +72,14 @@ class App extends React.Component {
     });
   };
 
+  clearCompleted = event => {
+    event.preventDefault();
+    const removeTask = this.state.todoData.filter(item => {
+      return item.completed === false;
+    });
+    this.setState({ todoData: removeTask });
+  };
+
   render() {
     return (
       <div className="App">
