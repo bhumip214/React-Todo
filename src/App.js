@@ -3,6 +3,8 @@ import TodoList from "./components/TodoComponents/TodoList";
 import TodoForm from "./components/TodoComponents/TodoForm";
 import "./App.css";
 
+import SimpleStorage from "react-simple-storage";
+
 const todoData = [
   {
     task: "Study React",
@@ -34,6 +36,12 @@ class App extends React.Component {
       task: ""
     };
   }
+
+  updateInput(key, value) {
+    // update react state
+    this.setState({ [key]: value });
+  }
+
   handleChanges = event => {
     this.setState({ task: event.target.value });
   };
@@ -48,6 +56,7 @@ class App extends React.Component {
       id: Date.now(),
       completed: false
     };
+
     this.setState({
       todoData: [...this.state.todoData, newItem],
       task: ""
@@ -83,6 +92,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
+        <SimpleStorage parent={this} />
         <TodoForm
           addNewTodo={this.addNewTodo}
           handleChanges={this.handleChanges}
