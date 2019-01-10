@@ -5,8 +5,8 @@ import "./TodoList.css";
 function TodoList(props) {
   return (
     <div className="todoList">
-      {props.todoData.map((todo, index) => {
-        return <Todo todo={todo} key={index} />;
+      {props.todoData.map(todo => {
+        return <Todo todo={todo} key={todo.id} toggleTodo={props.toggleTodo} />;
       })}
     </div>
   );

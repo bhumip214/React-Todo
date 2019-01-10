@@ -3,7 +3,12 @@ import "./Todo.css";
 
 function Todo(props) {
   return (
-    <div className={props.todo.completed === true ? "strike-through" : ""}>
+    <div
+      onClick={() => {
+        props.toggleTodo(props.todo.id);
+      }}
+      className={props.todo.completed === true ? "line-through" : null}
+    >
       {props.todo.task}
     </div>
   );

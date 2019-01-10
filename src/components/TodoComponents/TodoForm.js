@@ -3,17 +3,17 @@ import "./Todo.css";
 
 function TodoForm(props) {
   return (
-    <form className="todoBar" onSubmit={props.addNewTodo}>
+    <div className="todoBar">
       <input
         value={props.task}
         type="text"
-        task="task"
+        name="task"
         placeholder="...todo"
         onChange={props.handleChanges}
       />
-      <button type="submit">Add Todo</button>
-      <button>Clear Completed </button>
-    </form>
+      <button onClick={props.addNewTodo}>Add Todo</button>
+      <button onClick={props.clearCompleted}>Clear Completed </button>
+    </div>
   );
 }
 

@@ -1,3 +1,5 @@
-.strike-through {
+.line-through {
   text-decoration: line-through;
+  text-decoration-color: red;
+  text-decoration-style: wavy;
 }
