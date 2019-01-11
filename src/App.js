@@ -33,7 +33,9 @@ class App extends React.Component {
     super();
     this.state = {
       todoData: todoData,
-      task: ""
+      task: "",
+      searchTodos: [],
+      searchInputValue: ""
     };
   }
 
@@ -72,10 +74,14 @@ class App extends React.Component {
         if (todo.id !== id) {
           return todo;
         } else {
-          return {
-            ...todo,
-            completed: !todo.completed
-          };
+          return { ...todo, completed: !todo.completed };
+        }
+      }),
+      searchTodos: this.state.searchTodos.map(todo => {
+        if (todo.id !== id) {
+          return todo;
+        } else {
+          return { ...todo, completed: !todo.completed };
         }
       })
     });
@@ -89,13 +95,24 @@ class App extends React.Component {
     this.setState({ todoData: removeTask });
   };
 
+  handleSearch = event => {
+    let searchResult = this.state.todoData.filter(todo => {
+      return todo.task.toLowerCase().includes(event.target.value.toLowerCase());
+    });
+
+    this.setState({
+      searchInputValue: event.target.value,
+      searchTodos: searchResult
+    });
+  };
+
   render() {
     return (
       <div className="App">
         <SimpleStorage parent={this} />
         <div className="header">
           <span className="task-icon">
-            <i class="fas fa-list-alt" />
+            <i className="fas fa-list-alt" />
           </span>
           <h2>Todos</h2>
         </div>
@@ -105,10 +122,16 @@ class App extends React.Component {
           handleChanges={this.handleChanges}
           task={this.state.task}
           clearCompleted={this.clearCompleted}
+          handleSearch={this.handleSearch}
+          searchInputValue={this.state.searchInputValue}
         />
 
         <TodoList
-          todoData={this.state.todoData}
+          todoData={
+            this.state.searchInputValue
+              ? this.state.searchTodos
+              : this.state.todoData
+          }
           toggleTodo={this.handleToggleTodo}
         />
       </div>

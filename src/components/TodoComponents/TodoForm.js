@@ -4,7 +4,13 @@ import "./Todo.css";
 function TodoForm(props) {
   return (
     <div className="todoBar">
-      <input className="search-bar" type="text" placeholder="Search..." />
+      <input
+        className="search-bar"
+        value={props.searchInputValue}
+        type="text"
+        placeholder="Search..."
+        onChange={props.handleSearch}
+      />
       <input
         value={props.task}
         type="text"
