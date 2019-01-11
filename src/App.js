@@ -34,7 +34,6 @@ class App extends React.Component {
     this.state = {
       todoData: todoData,
       task: "",
-      searchTodos: [],
       searchInputValue: ""
     };
   }
@@ -76,13 +75,6 @@ class App extends React.Component {
         } else {
           return { ...todo, completed: !todo.completed };
         }
-      }),
-      searchTodos: this.state.searchTodos.map(todo => {
-        if (todo.id !== id) {
-          return todo;
-        } else {
-          return { ...todo, completed: !todo.completed };
-        }
       })
     });
   };
@@ -96,17 +88,18 @@ class App extends React.Component {
   };
 
   handleSearch = event => {
-    let searchResult = this.state.todoData.filter(todo => {
-      return todo.task.toLowerCase().includes(event.target.value.toLowerCase());
-    });
-
     this.setState({
-      searchInputValue: event.target.value,
-      searchTodos: searchResult
+      searchInputValue: event.target.value
     });
   };
 
   render() {
+    let searchResult = this.state.todoData.filter(todo => {
+      return todo.task
+        .toLowerCase()
+        .includes(this.state.searchInputValue.toLowerCase());
+    });
+
     return (
       <div className="App">
         <SimpleStorage parent={this} />
@@ -128,9 +121,7 @@ class App extends React.Component {
 
         <TodoList
           todoData={
-            this.state.searchInputValue
-              ? this.state.searchTodos
-              : this.state.todoData
+            this.state.searchInputValue ? searchResult : this.state.todoData
           }
           toggleTodo={this.handleToggleTodo}
         />
