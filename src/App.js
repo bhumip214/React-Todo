@@ -72,7 +72,8 @@ class App extends React.Component {
 
     this.setState({
       todoData: [...this.state.todoData, newItem],
-      task: ""
+      task: "",
+      dueDate: null
     });
   };
 
