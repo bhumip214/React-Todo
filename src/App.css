@@ -3,17 +3,14 @@
 }
 body {
   font-family: "Courgette", cursive;
-  background: rgb(252, 167, 137);
+  background: rgb(250, 179, 153);
 }
 #root {
-  /* width: 980px; */
   margin: 0 auto;
 }
 
 .App {
-  padding: 0px 150px;
-  /* border: 1px solid grey;
-  border-radius: 10px; */
+  padding: 0px 200px;
 }
 .header {
   display: flex;
@@ -21,7 +18,7 @@ body {
 }
 .task-icon {
   color: rgb(26, 243, 243);
-  font-size: 60px;
+  font-size: 40px;
   margin-right: 40px;
 }
 h2 {
@@ -29,22 +26,29 @@ h2 {
 }
 
 .todoBar {
-  margin-bottom: 50px;
+  margin-bottom: 20px;
 }
+input {
+  font-size: 16px;
+  padding: 10px;
+  border-radius: 5px;
+}
+
 .search-bar {
   width: 100%;
   margin-bottom: 20px;
 }
 
-input {
-  font-size: 18px;
-  width: 520px;
-  padding: 10px;
-  border-radius: 10px;
+.addTodo {
+  width: 400px;
+  margin-right: 10px;
 }
 
+.react-datepicker__input-container input {
+  width: 140px;
+}
 button {
-  padding: 10px 15px;
+  padding: 5px 15px;
   font-family: "Courgette", cursive;
   font-size: 18px;
   font-weight: bold;
@@ -54,8 +58,8 @@ button {
   color: black;
   border: 2px solid rgb(26, 243, 243);
   border-radius: 10px;
-  border: 1px solid white;
-  height: 50px;
+  border: 1px solid grey;
+  height: 40px;
 }
 
 .task {

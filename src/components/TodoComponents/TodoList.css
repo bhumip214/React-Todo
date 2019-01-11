@@ -1,9 +1,15 @@
-.todoList {
+.dailyTodos {
   cursor: pointer;
   font-size: 25px;
   line-height: 2;
   border: 1px solid grey;
-  border-radius: 10px;
+  border-radius: 5px;
   background: white;
-  padding: 40px;
+  padding: 20px 40px;
+}
+.dailyTodos + .dailyTodos {
+  margin-top: 20px;
+}
+
+.dueDate {
 }

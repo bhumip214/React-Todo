@@ -7,24 +7,34 @@ import SimpleStorage from "react-simple-storage";
 
 const todoData = [
   {
-    task: "Study React",
+    task: "Shop Groceries",
     id: 1,
-    completed: false
+    completed: false,
+    dueDate: new Date().toJSON()
+  },
+  {
+    task: "Clean Kitchen",
+    id: 2,
+    completed: false,
+    dueDate: new Date("2019-01-12").toJSON()
+  },
+  {
+    task: "Cook Dinner ",
+    id: 3,
+    completed: false,
+    dueDate: new Date().toJSON()
   },
   {
     task: "Organize Cabinet",
-    id: 2,
-    completed: false
-  },
-  {
-    task: "Cook Dinner",
-    id: 3,
-    completed: false
-  },
-  {
-    task: "Complete Todo App",
     id: 4,
-    completed: false
+    completed: false,
+    dueDate: new Date("2019-01-12").toJSON()
+  },
+  {
+    task: "Do Laundry",
+    id: 5,
+    completed: false,
+    dueDate: new Date("2019-01-12").toJSON()
   }
 ];
 
@@ -34,7 +44,8 @@ class App extends React.Component {
     this.state = {
       todoData: todoData,
       task: "",
-      searchInputValue: ""
+      searchInputValue: "",
+      dueDate: null
     };
   }
 
@@ -49,13 +60,14 @@ class App extends React.Component {
 
   addNewTodo = event => {
     event.preventDefault();
-    // if (this.state.task === "") {
-    //   return;
-    // }
+    if (this.state.task === "") {
+      return;
+    }
     let newItem = {
       task: this.state.task,
       id: Date.now(),
-      completed: false
+      completed: false,
+      dueDate: this.state.dueDate || new Date()
     };
 
     this.setState({
@@ -93,6 +105,12 @@ class App extends React.Component {
     });
   };
 
+  handleDateChange = date => {
+    this.setState({
+      dueDate: date
+    });
+  };
+
   render() {
     let searchResult = this.state.todoData.filter(todo => {
       return todo.task
@@ -102,7 +120,8 @@ class App extends React.Component {
 
     return (
       <div className="App">
-        <SimpleStorage parent={this} />
+        <SimpleStorage parent={this} blacklist={["dueDate"]} />
+
         <div className="header">
           <span className="task-icon">
             <i className="fas fa-list-alt" />
@@ -117,6 +136,8 @@ class App extends React.Component {
           clearCompleted={this.clearCompleted}
           handleSearch={this.handleSearch}
           searchInputValue={this.state.searchInputValue}
+          dueDate={this.state.dueDate}
+          handleDateChange={this.handleDateChange}
         />
 
         <TodoList
