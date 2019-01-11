@@ -5,44 +5,44 @@ import "./App.css";
 
 import SimpleStorage from "react-simple-storage";
 
-const todoData = [
-  {
-    task: "Shop Groceries",
-    id: 1,
-    completed: false,
-    dueDate: new Date().toJSON()
-  },
-  {
-    task: "Clean Kitchen",
-    id: 2,
-    completed: false,
-    dueDate: new Date("2019-01-12").toJSON()
-  },
-  {
-    task: "Cook Dinner ",
-    id: 3,
-    completed: false,
-    dueDate: new Date().toJSON()
-  },
-  {
-    task: "Organize Cabinet",
-    id: 4,
-    completed: false,
-    dueDate: new Date("2019-01-12").toJSON()
-  },
-  {
-    task: "Do Laundry",
-    id: 5,
-    completed: false,
-    dueDate: new Date("2019-01-12").toJSON()
-  }
-];
+// const todoData = [
+//   {
+//     task: "Shop Groceries",
+//     id: 1,
+//     completed: false,
+//     dueDate: new Date().toJSON()
+//   },
+//   {
+//     task: "Clean Kitchen",
+//     id: 2,
+//     completed: false,
+//     dueDate: new Date("2019-01-12").toJSON()
+//   },
+//   {
+//     task: "Cook Dinner ",
+//     id: 3,
+//     completed: false,
+//     dueDate: new Date().toJSON()
+//   },
+//   {
+//     task: "Organize Cabinet",
+//     id: 4,
+//     completed: false,
+//     dueDate: new Date("2019-01-12").toJSON()
+//   },
+//   {
+//     task: "Do Laundry",
+//     id: 5,
+//     completed: false,
+//     dueDate: new Date("2019-01-12").toJSON()
+//   }
+// ];
 
 class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      todoData: todoData,
+      todoData: [],
       task: "",
       searchInputValue: "",
       dueDate: null
@@ -63,11 +63,19 @@ class App extends React.Component {
     if (this.state.task === "") {
       return;
     }
+
+    if (!this.state.dueDate) {
+      alert("Please enter a due date");
+      return;
+    }
+
+    const dueDate = this.state.dueDate || new Date();
+
     let newItem = {
       task: this.state.task,
       id: Date.now(),
       completed: false,
-      dueDate: this.state.dueDate || new Date()
+      dueDate: dueDate.toJSON()
     };
 
     this.setState({
