@@ -1,0 +1,68 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  font-family: "Courgette", cursive;
+  background: rgb(250, 179, 153);
+}
+#root {
+  margin: 0 auto;
+}
+
+.App {
+  padding: 0px 200px;
+}
+.header {
+  display: flex;
+  align-items: center;
+}
+.task-icon {
+  color: rgb(26, 243, 243);
+  font-size: 40px;
+  margin-right: 40px;
+}
+h2 {
+  font-size: 40px;
+}
+
+.todoBar {
+  margin-bottom: 20px;
+}
+input {
+  font-size: 18px;
+  padding: 8px;
+  border-radius: 5px;
+  font-family: "Courgette", cursive;
+}
+
+.search-bar {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.addTodo {
+  width: 400px;
+  margin-right: 10px;
+}
+
+.react-datepicker__input-container input {
+  width: 140px;
+}
+button {
+  padding: 5px 15px;
+  font-family: "Courgette", cursive;
+  font-size: 18px;
+  font-weight: bold;
+  margin: 10px;
+  margin-right: 0px;
+  background-color: rgb(26, 243, 243);
+  color: black;
+  border: 2px solid rgb(26, 243, 243);
+  border-radius: 5px;
+  border: 1px solid grey;
+  height: 45px;
+}
+
+.task {
+  font-size: 20px;
+}
